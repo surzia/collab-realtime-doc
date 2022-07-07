@@ -3,3 +3,6 @@ proto:
 
 server:
 	cd cmd/server && go build -o server . && ./server
+
+client:
+	cd cmd/client && go build -o client . && ./client
