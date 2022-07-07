@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "./;protobuf";
+
+package protobuf;
+
+service NewService {
+  rpc GetHotTopNews(Request) returns (News) {}
+}
+
+message Request {
+  string type = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 is_filter = 4;
+}
+
+message News { repeated New news = 1; }
+
+message New {
+  string uniquekey = 1;
+  string title = 2;
+  google.protobuf.Timestamp date = 3;
+  string category = 4;
+  string author_name = 5;
+  string url = 6;
+  string thumbnail_pic_s = 7;
+  int32 is_content = 8;
+}
