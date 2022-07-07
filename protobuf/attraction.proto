@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "./;protobuf";
+
+package protobuf;
+
+service AttractionService {
+  rpc GetAttractions(Request) returns (Response) {}
+}
+
+message Request { string name = 1; }
+
+message Response { repeated Attraction atrtactions = 1; }
+
+message Attraction {
+  string id = 1;
+  string title = 2;
+  int64 visitors = 3;
+  float square = 4;
+  bool heritage = 5;
+  google.protobuf.Timestamp create_at = 6;
+  string image = 7;
+  string description = 8;
+  string location = 9;
+  string link = 10;
+  string state = 11;
+}
