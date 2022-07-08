@@ -5,7 +5,7 @@ option go_package = "./;protobuf";
 package protobuf;
 
 service NewService {
-  rpc GetHotTopNews(Request) returns (News) {}
+  rpc GetHotTopNews(Request) returns (Response) {}
 }
 
 message Request {
@@ -15,7 +15,7 @@ message Request {
   int64 is_filter = 4;
 }
 
-message News { repeated New news = 1; }
+message Response { repeated New news = 1; }
 
 message New {
   string uniquekey = 1;

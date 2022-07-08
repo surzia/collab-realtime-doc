@@ -22,9 +22,9 @@ type Server struct {
 	protobuf.UnimplementedNewServiceServer
 }
 
-func (s *Server) GetHotTopNews(ctx context.Context, req *protobuf.Request) (*protobuf.News, error) {
+func (s *Server) GetHotTopNews(ctx context.Context, req *protobuf.Request) (*protobuf.Response, error) {
 	ret := srv.RequestPublishAPI()
-	return &protobuf.News{
+	return &protobuf.Response{
 		News: ret,
 	}, nil
 }

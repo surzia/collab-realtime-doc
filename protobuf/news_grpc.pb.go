@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NewServiceClient interface {
-	GetHotTopNews(ctx context.Context, in *Request, opts ...grpc.CallOption) (*News, error)
+	GetHotTopNews(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
 }
 
 type newServiceClient struct {
@@ -33,8 +33,8 @@ func NewNewServiceClient(cc grpc.ClientConnInterface) NewServiceClient {
 	return &newServiceClient{cc}
 }
 
-func (c *newServiceClient) GetHotTopNews(ctx context.Context, in *Request, opts ...grpc.CallOption) (*News, error) {
-	out := new(News)
+func (c *newServiceClient) GetHotTopNews(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
 	err := c.cc.Invoke(ctx, "/protobuf.NewService/GetHotTopNews", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -46,7 +46,7 @@ func (c *newServiceClient) GetHotTopNews(ctx context.Context, in *Request, opts 
 // All implementations must embed UnimplementedNewServiceServer
 // for forward compatibility
 type NewServiceServer interface {
-	GetHotTopNews(context.Context, *Request) (*News, error)
+	GetHotTopNews(context.Context, *Request) (*Response, error)
 	mustEmbedUnimplementedNewServiceServer()
 }
 
@@ -54,7 +54,7 @@ type NewServiceServer interface {
 type UnimplementedNewServiceServer struct {
 }
 
-func (UnimplementedNewServiceServer) GetHotTopNews(context.Context, *Request) (*News, error) {
+func (UnimplementedNewServiceServer) GetHotTopNews(context.Context, *Request) (*Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetHotTopNews not implemented")
 }
 func (UnimplementedNewServiceServer) mustEmbedUnimplementedNewServiceServer() {}
