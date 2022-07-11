@@ -56,7 +56,18 @@ func NewNewService(conf *conf.Config) *NewService {
 	}
 }
 
-func (s *NewService) RequestPublishAPI() []*protobuf.New {
+func (s *NewService) RequestPublishAPI(request *protobuf.Request) []*protobuf.New {
+	// check request param
+	if request.GetType() != "" {
+		s.reqType = request.GetType()
+	}
+	if request.GetPage() != 0 {
+		s.page = int(request.GetPage())
+	}
+	if request.GetSize() != 0 {
+		s.size = int(request.GetSize())
+	}
+
 	reqUrl := fmt.Sprintf("%s?type=%s&page=%d&page_size=%d&is_filter=%d&key=%s", s.apiUri, s.reqType, s.page, s.size, s.isFilter, s.apiKey)
 	log.Printf("request url: %s", reqUrl)
 

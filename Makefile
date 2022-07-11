@@ -6,3 +6,9 @@ server:
 
 client:
 	cd cmd/client && go build -o client . && ./client
+
+webserver:
+	cd web && npm run start
+
+protojs:
+	protoc protobuf/*.proto --js_out=import_style=commonjs:./web/src/newspb --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./web/src/newspb

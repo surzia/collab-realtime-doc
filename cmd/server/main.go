@@ -23,7 +23,7 @@ type Server struct {
 }
 
 func (s *Server) GetHotTopNews(ctx context.Context, req *protobuf.Request) (*protobuf.Response, error) {
-	ret := srv.RequestPublishAPI()
+	ret := srv.RequestPublishAPI(req)
 	return &protobuf.Response{
 		News: ret,
 	}, nil
