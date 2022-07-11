@@ -1,0 +1,29 @@
+version: '3'
+services:
+  proxy:
+    build:
+      context: ./envoy
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+
+  go-grpc-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - "50051:50051"
+    depends_on:
+      - proxy
+  
+  web-client:
+    build: 
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - go-grpc-server
+      - proxy
+    tty: true
+     

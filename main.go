@@ -31,7 +31,7 @@ func (s *Server) GetHotTopNews(ctx context.Context, req *protobuf.Request) (*pro
 
 func main() {
 	// load config
-	conf, err := conf.Load("../../conf/grpc.conf")
+	conf, err := conf.Load("./conf/grpc.conf")
 	if err != nil {
 		panic(err)
 	}

@@ -1,5 +1,4 @@
 .vscode/
 .idea/
 
-cmd/server/server
-cmd/client/client
+server
