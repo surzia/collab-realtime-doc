@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/surzia/grpc-starter/conf"
-	"github.com/surzia/grpc-starter/protobuf"
+	conf "github.com/surzia/grpc-starter/server/conf"
+	protobuf "github.com/surzia/grpc-starter/server/protobuf"
 )
 
 // ApiResponse is struct of response of http api

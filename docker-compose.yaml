@@ -9,7 +9,7 @@ services:
 
   go-grpc-server:
     build:
-      context: .
+      context: ./server
       dockerfile: Dockerfile
     ports:
     - "50051:50051"

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.6.1
-// source: protobuf/news.proto
+// source: server/protobuf/news.proto
 
 package protobuf
 
@@ -101,5 +101,5 @@ var NewService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "protobuf/news.proto",
+	Metadata: "server/protobuf/news.proto",
 }

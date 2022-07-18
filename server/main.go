@@ -7,9 +7,9 @@ import (
 	"log"
 	"net"
 
-	"github.com/surzia/grpc-starter/conf"
-	"github.com/surzia/grpc-starter/protobuf"
-	"github.com/surzia/grpc-starter/service"
+	"github.com/surzia/grpc-starter/server/conf"
+	"github.com/surzia/grpc-starter/server/protobuf"
+	"github.com/surzia/grpc-starter/server/service"
 	"google.golang.org/grpc"
 )
 
