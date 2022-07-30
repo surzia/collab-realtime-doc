@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Grpc starter
 
 on:
   push:
@@ -13,6 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker compose build
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Build, Push and Deploy to Heroku
+      id: heroku
+      uses: snithyanantham/docker-compose-multiple-apps-heroku-deploy@v1.0
+      with:
+          email: jiesong97@gmail.com
+          api_key: 3d20847a-cbc6-41d4-abc6-9cb22b3290f3
+          docker_compose_file: 'docker-compose.yml'
+          heroku_apps: '[{"imagename":"grpc-starter_proxy","appname":"proxy","apptype":"worker"},{"imagename":"grpc-starter_go-grpc-server","appname":"server","apptype":"worker"},{"imagename":"grpc-starter_web-client","appname":"web","apptype":"web"}]'
