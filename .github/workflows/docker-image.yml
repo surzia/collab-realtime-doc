@@ -22,4 +22,4 @@ jobs:
           email: jiesong97@gmail.com
           api_key: 3d20847a-cbc6-41d4-abc6-9cb22b3290f3
           docker_compose_file: 'docker-compose.yaml'
-          heroku_apps: '[{"imagename":"grpc-starter_proxy","appname":"proxy","apptype":"worker"},{"imagename":"grpc-starter_go-grpc-server","appname":"server","apptype":"worker"},{"imagename":"grpc-starter_web-client","appname":"web","apptype":"web"}]'
+          heroku_apps: '[{"imagename":"proxy","appname":"proxy","apptype":"worker"},{"imagename":"server","appname":"server","apptype":"worker"},{"imagename":"web","appname":"web","apptype":"web"}]'
